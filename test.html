@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RELIEVV - Automate the Boring</title>
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* =========================================
+           1. PREMIUM THEME VARIABLES
+           ========================================= */
+        :root {
+            /* Primary Blue Theme */
+            --primary-blue: #1e3c72;       
+            --secondary-blue: #2a5298;     
+            --accent-blue: #4a7dff;        
+            --accent-hover: #3260d6;       
+            --light-blue: #5a8cff;
+            
+            /* Backgrounds */
+            --bg-body: #f8fafc;
+            --bg-white: #ffffff;
+            --bg-light-blue: #f0f5ff;
+            
+            /* Text */
+            --text-dark: #1a202c;
+            --text-medium: #4a5568;
+            --text-light: #718096;
+            --heart-red: #e53e3e;
+            
+            /* Layout */
+            --container-width: 1200px;
+            --header-height: 80px;
+            --radius-card: 12px;
+            --radius-btn: 8px;
+            
+            /* Shadows */
+            --shadow-card: 0 4px 16px rgba(0, 0, 120, 0.08);
+            --shadow-hover: 0 8px 25px rgba(0, 0, 120, 0.15);
+            --shadow-nav: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        /* =========================================
+           2. GLOBAL RESET
+           ========================================= */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        
+        html { 
+            scroll-behavior: smooth; 
+            scroll-padding-top: 100px;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'Inter', -apple-system, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a { 
+            text-decoration: none; 
+            color: inherit; 
+            transition: all 0.3s ease; 
+        }
+        
+        ul { 
+            list-style: none; 
+        }
+        
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* =========================================
+           3. HEADER & NAVIGATION
+           ========================================= */
+        header {
+            background: var(--bg-white);
+            height: var(--header-height);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-nav);
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .header-scrolled {
+            height: 70px;
+            box-shadow: 0 4px 20px rgba(0, 0, 120, 0.1);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links { 
+            display: flex; 
+            gap: 2.5rem; 
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            color: var(--text-medium);
+            font-size: 0.95rem;
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-blue);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover { 
+            color: var(--accent-blue); 
+        }
+
+        .nav-links a.active { 
+            color: var(--primary-blue); 
+        }
+
+        .btn-header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: white;
+            padding: 0.7rem 1.8rem;
+            border-radius: var(--radius-btn);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-header:hover {
+            background: linear-gradient(135deg, var(--secondary-blue), var(--accent-blue));
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(42, 82, 152, 0.3);
+        }
+
+        /* Mobile Menu */
+        .menu-toggle { 
+            display: none; 
+            font-size: 1.5rem; 
+            color: var(--primary-blue); 
+            cursor: pointer; 
+            background: none;
+            border: none;
+            padding: 5px;
+        }
+
+        /* =========================================
+           4. HERO SECTION
+           ========================================= */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            padding: 10rem 0 6rem;
+            text-align: center;
+            color: white;
+            margin-top: var(--header-height);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" opacity="0.05"><path fill="white" d="M0 0h1200v600H0z"/><circle cx="300" cy="150" r="80"/><circle cx="900" cy="450" r="100"/><rect x="600" y="100" width="200" height="200" rx="20"/></svg>');
+            background-size: cover;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto 2.5rem;
+            opacity: 0.95;
+            font-weight: 400;
+            line-height: 1.7;
+        }
+
+        .hero-subtext {
+            display: block;
+            margin-top: 1.5rem;
+            font-size: 1rem;
+            opacity: 0.8;
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        .btn-hero {
+            background: white;
+            color: var(--primary-blue);
+            padding: 1rem 3rem;
+            border-radius: var(--radius-btn);
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: inline-block;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .btn-hero:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+            background: var(--bg-light-blue);
+            border-color: var(--accent-blue);
+        }
+
+        /* =========================================
+           5. CURRENT TOOLS SECTION
+           ========================================= */
+        .section { 
+            padding: 6rem 0; 
+            scroll-margin-top: 100px;
+        }
+        
+        .section-header { 
+            text-align: center; 
+            margin-bottom: 4rem; 
+        }
+        
+        .section-header h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-blue), var(--accent-blue));
+            border-radius: 2px;
+        }
+        
+        .section-header p {
+            color: var(--text-medium);
+            font-size: 1.15rem;
+            max-width: 700px;
+            margin: 1.5rem auto 0;
+            line-height: 1.7;
+        }
+
+        /* Responsive Grid for Tools */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .tool-card {
+            background: var(--bg-white);
+            border-radius: var(--radius-card);
+            padding: 2.5rem 2rem;
+            box-shadow: var(--shadow-card);
+            border: 1px solid #e2e8f0;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tool-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-blue), var(--accent-blue));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .tool-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .tool-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--light-blue);
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--bg-light-blue), #e0e7ff);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            color: var(--accent-blue);
+            margin-bottom: 1.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .tool-card:hover .icon-box {
+            transform: rotate(5deg) scale(1.1);
+            background: linear-gradient(135deg, var(--accent-blue), var(--light-blue));
+            color: white;
+        }
+
+        .tool-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            line-height: 1.3;
+        }
+
+        .tool-card p {
+            color: var(--text-medium);
+            font-size: 1rem;
+            margin-bottom: 2.5rem;
+            flex-grow: 1;
+            line-height: 1.6;
+        }
+
+        .btn-tool {
+            width: 100%;
+            background: linear-gradient(135deg, var(--accent-blue), var(--light-blue));
+            color: white;
+            padding: 1rem;
+            border-radius: var(--radius-btn);
+            font-weight: 600;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .btn-tool:hover { 
+            background: linear-gradient(135deg, var(--secondary-blue), var(--accent-blue));
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(74, 125, 255, 0.3);
+        }
+
+        /* =========================================
+           6. BROWSE BY CATEGORY
+           ========================================= */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .category-card {
+            background: var(--bg-white);
+            border-radius: var(--radius-card);
+            padding: 2.5rem 2rem;
+            box-shadow: var(--shadow-card);
+            display: flex;
+            gap: 1.8rem;
+            align-items: flex-start;
+            transition: all 0.4s ease;
+            border: 1px solid transparent;
+            position: relative;
+        }
+
+        .category-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(74, 125, 255, 0.2);
+            background: linear-gradient(145deg, #ffffff, #f8fafc);
+        }
+
+        .cat-icon {
+            font-size: 1.8rem;
+            color: var(--accent-blue);
+            padding: 15px;
+            background: var(--bg-light-blue);
+            border-radius: 12px;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .category-card:hover .cat-icon {
+            transform: rotate(10deg) scale(1.1);
+            background: linear-gradient(135deg, var(--accent-blue), var(--light-blue));
+            color: white;
+        }
+
+        .cat-content {
+            flex: 1;
+        }
+
+        .cat-content h4 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: var(--text-dark);
+        }
+
+        .cat-content p {
+            font-size: 1rem;
+            color: var(--text-medium);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .cat-link {
+            color: var(--primary-blue);
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .cat-link:hover { 
+            color: var(--accent-blue); 
+            gap: 12px;
+        }
+
+        /* =========================================
+           7. WHY CHOOSE US
+           ========================================= */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            text-align: center;
+        }
+
+        .feature-item { 
+            padding: 2rem 1.5rem; 
+            border-radius: var(--radius-card);
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            background: var(--bg-white);
+            box-shadow: var(--shadow-card);
+            transform: translateY(-5px);
+        }
+
+        .feature-icon-circle {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.8rem;
+            background: linear-gradient(135deg, var(--bg-light-blue), #e0e7ff);
+            color: var(--accent-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            transition: all 0.4s ease;
+        }
+
+        .feature-item:hover .feature-icon-circle {
+            transform: rotate(15deg) scale(1.1);
+            background: linear-gradient(135deg, var(--accent-blue), var(--light-blue));
+            color: white;
+        }
+
+        .feature-item h4 { 
+            font-size: 1.2rem; 
+            margin-bottom: 1rem; 
+            font-weight: 700; 
+            color: var(--text-dark);
+        }
+        
+        .feature-item p { 
+            font-size: 0.95rem; 
+            color: var(--text-medium); 
+            line-height: 1.6; 
+        }
+
+        /* =========================================
+           8. CTA SECTION
+           ========================================= */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            text-align: center;
+            color: white;
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" opacity="0.05"><path fill="white" d="M0 0h1200v600H0z"/><circle cx="200" cy="200" r="60"/><circle cx="1000" cy="400" r="80"/><rect x="500" y="150" width="300" height="150" rx="15"/></svg>');
+            background-size: cover;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section h2 { 
+            font-size: 2.8rem; 
+            margin-bottom: 1.5rem; 
+            font-weight: 800;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .cta-section p { 
+            max-width: 700px; 
+            margin: 0 auto 3rem; 
+            opacity: 0.95; 
+            font-size: 1.2rem;
+            line-height: 1.7;
+        }
+
+        .cta-section .btn-hero {
+            background: white;
+            color: var(--primary-blue);
+            padding: 1.1rem 3.5rem;
+            font-size: 1.15rem;
+        }
+
+        /* =========================================
+           9. ABOUT & CONTACT
+           ========================================= */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: start;
+        }
+
+        .about-text h3 {
+            font-size: 2.2rem;
+            color: var(--primary-blue);
+            margin-bottom: 2rem;
+            font-weight: 800;
+            position: relative;
+            display: inline-block;
+        }
+
+        .about-text h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-blue), var(--accent-blue));
+            border-radius: 2px;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--text-medium);
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        .highlight { 
+            color: var(--accent-blue); 
+            font-weight: 700; 
+            position: relative;
+            display: inline-block;
+        }
+
+        .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--accent-blue);
+            opacity: 0.3;
+        }
+
+        .contact-box h3 {
+            font-size: 2.2rem;
+            color: var(--primary-blue);
+            margin-bottom: 2rem;
+            font-weight: 800;
+            position: relative;
+            display: inline-block;
+        }
+
+        .contact-box h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-blue), var(--accent-blue));
+            border-radius: 2px;
+        }
+
+        .contact-box > p {
+            margin-bottom: 2rem;
+            color: var(--text-medium);
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        .contact-info {
+            background: var(--bg-white);
+            padding: 2.5rem;
+            border-radius: var(--radius-card);
+            box-shadow: var(--shadow-card);
+            border-left: 5px solid var(--accent-blue);
+            transition: all 0.3s ease;
+        }
+
+        .contact-info:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .contact-info span {
+            font-size: 0.9rem; 
+            color: var(--text-light); 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-email {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-top: 0.5rem;
+            display: block;
+            transition: all 0.3s ease;
+            padding: 10px 0;
+        }
+        
+        .contact-email:hover { 
+            color: var(--accent-blue); 
+            transform: translateX(5px);
+        }
+
+        .contact-info p {
+            margin-top: 1.5rem;
+            font-size: 0.95rem;
+            color: var(--text-medium);
+            padding-top: 1.5rem;
+            border-top: 1px solid #edf2f7;
+        }
+
+        /* =========================================
+           10. FOOTER
+           ========================================= */
+        footer {
+            background: var(--bg-white);
+            padding: 5rem 0 2rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h4 {
+            color: var(--primary-blue);
+            margin-bottom: 1.8rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 30px;
+            height: 3px;
+            background: var(--accent-blue);
+            border-radius: 2px;
+        }
+
+        .footer-col p {
+            color: var(--text-medium);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links li { 
+            margin-bottom: 1rem; 
+        }
+        
+        .footer-links a { 
+            color: var(--text-medium); 
+            font-size: 0.95rem; 
+            transition: all 0.2s; 
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .footer-links a:hover { 
+            color: var(--accent-blue); 
+            transform: translateX(5px);
+        }
+
+        .footer-links a i {
+            font-size: 0.8rem;
+            opacity: 0;
+            transition: all 0.2s;
+        }
+
+        .footer-links a:hover i {
+            opacity: 1;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+            background: var(--bg-light-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-blue);
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background: var(--accent-blue);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .newsletter-form { 
+            display: flex; 
+            gap: 0.5rem; 
+            margin-top: 1rem;
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 0.9rem 1.2rem;
+            border: 1px solid #cbd5e0;
+            border-radius: var(--radius-btn);
+            outline: none;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+
+        .newsletter-input:focus {
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(74, 125, 255, 0.1);
+        }
+        
+        .newsletter-btn {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: white;
+            border: none;
+            padding: 0 1.8rem;
+            border-radius: var(--radius-btn);
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .newsletter-btn:hover {
+            background: linear-gradient(135deg, var(--secondary-blue), var(--accent-blue));
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 3rem;
+            border-top: 1px solid #edf2f7;
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        .footer-bottom p {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        /* =========================================
+           11. RESPONSIVE DESIGN
+           ========================================= */
+        @media (max-width: 1200px) {
+            .container {
+                max-width: 100%;
+                padding: 0 2rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 2.8rem; }
+            .section-header h2 { font-size: 2.5rem; }
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
+            .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .cta-section h2 { font-size: 2.5rem; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: var(--header-height);
+                left: 0;
+                width: 100%;
+                background: var(--bg-white);
+                padding: 1.5rem 0;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                z-index: 999;
+            }
+            
+            .nav-links.active { 
+                display: flex; 
+                animation: slideDown 0.3s ease;
+            }
+            
+            @keyframes slideDown {
+                from { opacity: 0; transform: translateY(-10px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            
+            .nav-links a { 
+                padding: 1rem 2rem; 
+                width: 100%;
+                text-align: center;
+                border-bottom: 1px solid #f0f0f0; 
+                font-size: 1.1rem;
+            }
+            
+            .nav-links a:last-child { border-bottom: none; }
+            
+            .menu-toggle { 
+                display: block; 
+                z-index: 1001;
+            }
+            
+            .hero { 
+                padding: 8rem 0 4rem; 
+            }
+            
+            .hero h1 { 
+                font-size: 2.3rem; 
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .tools-grid, 
+            .category-grid, 
+            .features-grid { 
+                grid-template-columns: 1fr; 
+            }
+            
+            .footer-grid { 
+                grid-template-columns: 1fr; 
+                gap: 2.5rem;
+            }
+            
+            .container { 
+                padding: 0 1.5rem; 
+            }
+            
+            .section { 
+                padding: 4rem 0; 
+            }
+            
+            .section-header h2 {
+                font-size: 2.2rem;
+            }
+            
+            .cta-section h2 {
+                font-size: 2.2rem;
+            }
+            
+            .cta-section {
+                padding: 4rem 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1rem; }
+            .btn-hero { padding: 0.9rem 2rem; }
+            .tool-card { padding: 2rem 1.5rem; }
+            .category-card { padding: 2rem 1.5rem; }
+            .about-text h3, .contact-box h3 { font-size: 1.8rem; }
+            .container { padding: 0 1.2rem; }
+        }
+
+        /* Scroll to Top Button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(30, 60, 114, 0.3);
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            background: linear-gradient(135deg, var(--accent-blue), var(--light-blue));
+            box-shadow: 0 6px 20px rgba(74, 125, 255, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top" id="scrollTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <!-- Header -->
+    <header id="mainHeader">
+        <div class="container nav-wrapper">
+            <a href="#home" class="logo">
+                <span>RELIEVV</span>
+            </a>
+            <button class="menu-toggle" onclick="toggleMenu()" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="nav-links" id="navLinks">
+                <a href="#home" class="active">Home</a>
+                <a href="#tools">All Tools</a>
+                <a href="#categories">Categories</a>
+                <a href="#features">Why Choose Us</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="#tools" class="btn-header">Get Started</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <h1>Automate the Boring</h1>
+            <p>
+                Eliminate manual tasks in finance, audit, and accounts with powerful automation tools. 
+                Made in India with <i class="fas fa-heart" style="color: var(--heart-red);"></i> to help professionals work smarter, not harder.
+            </p>
+            <span class="hero-subtext">More tools coming soon to revolutionize your workflow!</span>
+            <br><br>
+            <a href="#tools" class="btn-hero">Browse Tools <i class="fas fa-arrow-right" style="margin-left: 8px;"></i></a>
+        </div>
+    </section>
+
+    <!-- Current Tools Section -->
+    <section id="tools" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Current Tools</h2>
+                <p>Automate boring manual tasks in finance, audit, and accounts with these powerful tools.</p>
+            </div>
+
+            <div class="tools-grid">
+                
+                <div class="tool-card" id="tool-merge">
+                    <div class="icon-box">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3>Merge Multi Excel Sheets into One</h3>
+                    <p>Combine multiple Excel sheets from a single workbook into one consolidated sheet efficiently. Perfect for consolidating monthly reports, financial statements, or data from multiple departments.</p>
+                    <a href="#" class="btn-tool">Use Tool <i class="fas fa-external-link-alt"></i></a>
+                </div>
+
+                <div class="tool-card" id="tool-combine">
+                    <div class="icon-box">
+                        <i class="fas fa-file-excel"></i>
+                    </div>
+                    <h3>Combine Multiple Excel Workbooks into One</h3>
+                    <p>Merge multiple Excel workbooks into a single comprehensive workbook with all data intact. Ideal for combining financial reports from different branches or departments.</p>
+                    <a href="#" class="btn-tool">Use Tool <i class="fas fa-external-link-alt"></i></a>
+                </div>
+
+                <div class="tool-card" id="tool-audit">
+                    <div class="icon-box">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Audit Sampling Tool</h3>
+                    <p>Generate statistically valid samples for your financial audits and compliance checks. Ensure accurate representation of data while saving hours of manual sampling work.</p>
+                    <a href="#" class="btn-tool">Use Tool <i class="fas fa-external-link-alt"></i></a>
+                </div>
+
+                <div class="tool-card" id="tool-converter">
+                    <div class="icon-box">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
+                    <h3>26AS Converter</h3>
+                    <p>Convert 26AS text or HTML files into formatted Excel sheets for easy analysis. Extract tax credit information quickly without manual data entry.</p>
+                    <a href="#" class="btn-tool">Use Tool <i class="fas fa-external-link-alt"></i></a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Browse by Category -->
+    <section id="categories" class="section" style="background: white;">
+        <div class="container">
+            <div class="section-header">
+                <h2>Browse by Category</h2>
+                <p>Find the right tool for your finance, audit, and accounts needs.</p>
+            </div>
+
+            <div class="category-grid">
+                
+                <div class="category-card">
+                    <i class="fas fa-file-excel cat-icon"></i>
+                    <div class="cat-content">
+                        <h4>Excel Related</h4>
+                        <p>Powerful tools to handle Excel files, merge sheets, combine workbooks, and streamline data processing tasks. Perfect for financial analysts and accountants.</p>
+                        <a href="#tools" class="cat-link">View Tools <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <i class="fas fa-clipboard-check cat-icon"></i>
+                    <div class="cat-content">
+                        <h4>Audit</h4>
+                        <p>Tools designed specifically for auditing tasks, like sampling, data verification, and financial verification. Streamline your audit process with automated solutions.</p>
+                        <a href="#tool-audit" class="cat-link">Audit Sampling Tool <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <i class="fas fa-exchange-alt cat-icon"></i>
+                    <div class="cat-content">
+                        <h4>Converter</h4>
+                        <p>Convert different file formats (like text or HTML) into structured Excel data for easy analysis. Save hours of manual data entry and formatting.</p>
+                        <a href="#tool-converter" class="cat-link">26AS Converter <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section id="features" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose Us</h2>
+                <p>Built with professionals in mind, our platform delivers the performance and reliability you need.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon-circle"><i class="fas fa-bolt"></i></div>
+                    <h4>Speed</h4>
+                    <p>Lightning-fast processing ensures your tasks are completed quickly, boosting productivity without compromising quality.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon-circle"><i class="fas fa-shield-alt"></i></div>
+                    <h4>Security</h4>
+                    <p>Your data is protected with industry-standard encryption and secure processing protocols. We never store your sensitive information.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon-circle"><i class="fas fa-smile"></i></div>
+                    <h4>Ease of Use</h4>
+                    <p>Intuitive interfaces designed for efficiency, requiring no technical expertise to get started. Built by professionals for professionals.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon-circle"><i class="fas fa-check-circle"></i></div>
+                    <h4>Reliability</h4>
+                    <p>Consistent performance you can depend on, backed by robust infrastructure and regular updates. Trusted by finance professionals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="cta" class="cta-section">
+        <div class="container cta-content">
+            <h2>Ready to Get Started?</h2>
+            <p>Join thousands of professionals who trust our platform for their daily workflow. Start using our tools today - no signup required.</p>
+            <a href="#tools" class="btn-hero">Explore All Tools <i class="fas fa-arrow-right" style="margin-left: 8px;"></i></a>
+        </div>
+    </section>
+
+    <!-- About & Contact -->
+    <section id="about" class="section" style="background: white;">
+        <div class="container">
+            <div class="about-grid">
+                
+                <div class="about-text">
+                    <h3>About RELIEVV</h3>
+                    <p>RELIEVV is built and curated by <span class="highlight">Rahul</span>, a professional with a strong financial background and a vision to transform the way finance, audit, and accounts professionals work.</p>
+                    <p>Having experienced firsthand the tedious manual tasks that consume valuable time in the financial sector, Rahul set out to automate these boring, repetitive processes. RELIEVV is the result of this vision — a suite of powerful tools designed to help finance and audit professionals work more efficiently and focus on what truly matters.</p>
+                    <p style="margin-top: 1.5rem; font-weight: 600; font-size: 1.1rem; color: var(--primary-blue);">Built in India with <i class="fas fa-heart" style="color: var(--heart-red); margin: 0 5px;"></i> for professionals worldwide</p>
+                </div>
+
+                <div class="contact-box" id="contact">
+                    <h3>Contact Us</h3>
+                    <p>Have questions or feedback? We'd love to hear from you.</p>
+                    <div class="contact-info">
+                        <span>Email Us At</span>
+                        <a href="mailto:rahulkumarca89@gmail.com" class="contact-email">rahulkumarca89@gmail.com</a>
+                        <p>We typically reply within 24 hours.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>RELIEVV</h4>
+                    <p>
+                        Automating boring manual tasks in finance, audit, and accounts. Making professionals more efficient since 2023.
+                    </p>
+                    <p style="font-size: 0.9rem; margin-top: 2rem;">Made in India with <i class="fas fa-heart" style="color: var(--heart-red);"></i></p>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Contact Information</h4>
+                    <ul class="footer-links">
+                        <li><a href="mailto:rahulkumarca89@gmail.com"><i class="fas fa-envelope"></i> rahulkumarca89@gmail.com</a></li>
+                        <li><a href="#"><i class="fas fa-headset"></i> Available for support requests</a></li>
+                    </ul>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="#tools"><i class="fas fa-tools"></i> Tools</a></li>
+                        <li><a href="#categories"><i class="fas fa-th-large"></i> Categories</a></li>
+                        <li><a href="#features"><i class="fas fa-star"></i> Why Choose Us</a></li>
+                        <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+                        <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe to get updates on new tools and features.</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" placeholder="Enter your email" class="newsletter-input" required>
+                        <button type="submit" class="newsletter-btn">Subscribe</button>
+                    </form>
+                    <p style="font-size: 0.85rem; margin-top: 1rem; color: var(--text-light);">No spam. Unsubscribe anytime.</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2026 RELIEVV. Made with <i class="fas fa-heart" style="color: var(--heart-red);"></i> by <span style="color: var(--primary-blue); font-weight: 700;">Rahul</span>. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const nav = document.getElementById('navLinks');
+            const isActive = nav.classList.contains('active');
+            
+            if (isActive) {
+                nav.classList.remove('active');
+                nav.style.display = 'none';
+            } else {
+                nav.classList.add('active');
+                nav.style.display = 'flex';
+                nav.style.flexDirection = 'column';
+            }
+        }
+        
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('mainHeader');
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > 50) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+            
+            // Scroll to top button
+            const scrollTopBtn = document.getElementById('scrollTop');
+            if (scrollTop > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+        
+        // Scroll to top functionality
+        document.getElementById('scrollTop').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Active navigation link highlighting
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-links a');
+        
+        function setActiveLink() {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.clientHeight;
+                
+                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', setActiveLink);
+        
+        // Newsletter form submission
+        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('.newsletter-input').value;
+            
+            // In a real application, you would send this to your server
+            alert(`Thank you for subscribing with ${email}! You'll hear from us soon.`);
+            this.querySelector('.newsletter-input').value = '';
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    toggleMenu();
+                }
+            });
+        });
+        
+        // Responsive menu handling on resize
+        window.addEventListener('resize', function() {
+            const nav = document.getElementById('navLinks');
+            if (window.innerWidth > 768) {
+                nav.style.display = 'flex';
+                nav.style.flexDirection = 'row';
+                nav.classList.remove('active');
+            } else {
+                if (!nav.classList.contains('active')) {
+                    nav.style.display = 'none';
+                }
+            }
+        });
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            setActiveLink();
+            
+            // Add smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const offsetTop = targetElement.offsetTop - 80;
+                        
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
