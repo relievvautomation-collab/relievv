@@ -6,6 +6,7 @@ function redirecturl(){
     window.location.href = url;
     window.open(url, target);
 }
+}
 
 redirecturl();
 
