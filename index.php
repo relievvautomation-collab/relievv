@@ -80,7 +80,7 @@
                         <p>Merge multiple Excel worksheets into a single structured master sheet for unified financial data analysis.</p>
                        
                               <button class="btn-use-tool"
-                            onclick="windowredirecturl('https://excel-sheet-consolidator.relievv.in', '_blank')">
+                            onclick="windowredirecturl('https://excel-sheet.relievv.in', '_blank')">
                             Use Tool
                             </button>
                      
@@ -96,7 +96,7 @@
                         <p>Unify multiple Excel workbooks into a single consolidated file for streamlined reporting and reconciliation workflows.</p>
                         
                         <button class="btn-use-tool"
-                            onclick="window.location.href='https://excel-workbook-integrator.onrender.com'">
+                            onclick="window.location.href='https://excel-workbook.relievv.in'">
                             Use Tool
                         </button>
                     </div>
@@ -122,7 +122,7 @@
                         <p>Convert 26AS into excel or alternate pro-rata formatted Excel for easy analysis.</p>
                     
                           <button class="btn-use-tool"
-                            onclick="windowredirecturl('https://two6as-parser-tool.onrender.com', '_blank')">
+                            onclick="windowredirecturl('https://26as.relievv.in', '_blank')">
                             Use Tool
                             </button>
                     </div>
@@ -137,7 +137,7 @@
                         <p>Convert system-generated PDF bank statements into structured Excel format for financial analysis and reconciliation.</p>
 
                         <button class="btn-use-tool"
-                            onclick="window.open('https://bank-statement-parser-r0w2.onrender.com', '_blank')">
+                            onclick="window.open('https://bank.relievv.in', '_blank')">
                             Use Tool
                         </button>
                     </div>
@@ -154,7 +154,7 @@
                     <p>Merge multiple months GSTR-1, GSTR-3B, and GSTR-2A JSON files into a single structured master report.</p>
 
                     <button class="btn-use-tool"
-                    onclick="window.open('https://gstr-consolidated-report.onrender.com', '_blank')">
+                    onclick="window.open('https://gstr.relievv.in', '_blank')">
                      Use Tool
                     </button>
                     </div>
@@ -308,6 +308,7 @@
 </body>
 
 </html>
+
 
 
 
