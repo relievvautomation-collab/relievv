@@ -48,10 +48,10 @@
                     <span class="color-light-border">by professionals</span>
                 </div>
             </div>
-            <div class="col-md-3 col-6 text-center">
+            <!-- <div class="col-md-3 col-6 text-center">
                 <h2 class="counter-total" id="counter3" data-target="95">0%</h2>
                 <p>Customer Satisfaction</p>
-            </div>
+            </div> -->
             <div class="col-md-3 col-6 text-center">
                 <h2 class="counter-total" id="counter4" data-target="24">0/7</h2>
                 <p>Support Available</p>
@@ -308,6 +308,7 @@
 </body>
 
 </html>
+
 
 
 
