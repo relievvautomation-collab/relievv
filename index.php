@@ -277,7 +277,7 @@
     <section class="about-section" id="about">
         <div class="container">
             <h2>About RELIEVV</h2>
-            <p>RELIEVV is built and created by <span class="highlight-text">Rahul</span>, a professional with a strong financial background and a vision to transform the way finance, audit, and accounts professionals work.</p>
+            <p>RELIEVV is built and created by <span class="highlight-text">Rahul</span>, a <strong>Chartered Accountant</strong> with a strong financial background and a vision to transform the way finance, audit, and accounts professionals work.</p>
             <p>Frustrated by how tedious manual tasks that consume valuable time in the financial sector, Rahul set out to automate these boring, repetitive processes. RELIEVV is the result of this vision—a suite of powerful tools designed to help finance and audit professionals work more efficiently and focus on what truly matters.</p>
             <p><span class="highlight-text text-dark">Built in India with ❤️</span></p>
         </div>
@@ -308,6 +308,7 @@
 </body>
 
 </html>
+
 
 
 
