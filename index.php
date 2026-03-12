@@ -33,7 +33,7 @@
         <!-- Total Users Section Start -->
  <section class="current-tools">
     <div class="container">
-        <div class="row">
+        <div class="row justify-content-center">
             <div class="col-md-3 col-6 text-center">
                 <h2 class="counter-total" id="counter1" data-target="5">0+</h2>
                 <div class="d-flex align-items-center flex-column">
@@ -308,6 +308,7 @@
 </body>
 
 </html>
+
 
 
 
