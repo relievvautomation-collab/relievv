@@ -27,11 +27,11 @@
                 <div class="col-lg-4 col-12  shadow-lg px-0">
                     <div class="d-flex flex-column align-items-start position-relative">
                         <div class="blog-img-box">
-                            <img src="./assets/images/contact-left-img.png" alt="blog" class="w-100 h-100 object-fit-cover rounded-2">
+                            <img src="./assets/images/blog-details.jpeg" alt="blog" class="w-100 h-100 object-fit-cover rounded-2">
                         </div>
-                        <div class="p-4 w-100 d-flex flex-column align-items-start justify-content-center">
-                        <h5 class="mb-3 head-title-blog">How AI is Revolutionizing Finance and Accounting</h5>
-                        <p class="mb-0 font-size-paragraph">Discover how AI is transforming finance and accounting, from automating tasks to enhancing decision-making. Explore the benefits....</p>
+                        <div class="p-3 w-100 d-flex flex-column align-items-start justify-content-center">
+                         <h5 class="mb-3 head-title-blog">The Future of Finance Work</h5>
+                        <p class="mb-0 font-size-paragraph">Tools like Excel and traditional accounting software have helped streamline financial workflows, they still require extensive manual effort for tasks like data formatting, data extraction, reconciliation, and reporting.</p>
                         <a href="blog-details" class="btn-use-tool w-100 mt-4 text-decoration-none text-center">Read More</a>
                         </div>
                         
