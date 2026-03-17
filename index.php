@@ -16,6 +16,11 @@
 
         gtag('config', 'G-5NLNR1DHVE');
         </script>
+  <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+  <link rel="shortcut icon" href="favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="favicon/site.webmanifest" />
 </head>
 <body>
   <?php include 'header.php'; ?>
@@ -26,7 +31,7 @@
             <h1> Professional Online Tools Suite</h1>
             <p>Eliminate manual tasks in finance, audit, and accounts with powerful automation tools. Made in India with ❤️ to help professionals work smarter, not harder.</p>
             <p class="subtext">More tools coming soon to revolutionize your workflow!</p>
-            <button class="btn btn-browse">Browse Tools</button>
+            <button class="btn btn-browse"  onclick="windowredirecturl('https://relievv.in/#tools', '_self')">Browse Tools</button>
         </div>
     </section>
 
