@@ -3,7 +3,199 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Relievv</title>
+ 
+     <!-- =============================================
+         SEO META TAGS — RELIEVV MAIN HOMEPAGE
+         ============================================= -->
+ 
+    <!-- Primary SEO -->
+    <title>Relievv –  Tools for Finance, Audit & Accounts Professionals | Made in India</title>
+    <meta name="description" content="Relievv offers free online automation tools for finance, audit, and accounts professionals. Merge Excel sheets, parse 26AS PDFs, convert bank statements, consolidate GSTR files, and more. No signup required. Made in India by a Chartered Accountant.">
+    <meta name="keywords" content="free finance tools online, Excel sheet consolidator, 26AS parser tool, bank statement parser, GSTR consolidator, Excel workbook integrator, audit sampling tool, CA tools online, accounting automation tools India, finance automation tools, tax tools India, free CA tools, Relievv tools">
+    <meta name="author" content="Relievv Automation">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="https://relievv.in/">
+ 
+    <!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Relievv – Free Online Tools for Finance, Audit & Accounts | Made in India">
+    <meta property="og:description" content="Free automation tools for finance and audit professionals. Merge Excel sheets, parse 26AS PDFs, convert bank statements, consolidate GSTR files. No signup required.">
+    <meta property="og:url" content="https://relievv.in/">
+    <meta property="og:site_name" content="Relievv Automation">
+    <!-- <meta property="og:image" content="https://relievv.in/assets/images/og-relievv.png"> -->
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_IN">
+ 
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Relievv – Free Online Tools for Finance, Audit & Accounts Professionals">
+    <meta name="twitter:description" content="Free automation tools for CA, finance, and audit professionals. Excel merger, 26AS parser, bank statement converter, GSTR consolidator. Made in India.">
+    <!-- <meta name="twitter:image" content="https://relievv.in/assets/images/og-relievv.png"> -->
+    <meta name="twitter:site" content="@relievv">
+ 
+    <!-- Geo & Language -->
+    <meta name="geo.region" content="IN">
+    <meta name="geo.country" content="India">
+    <meta name="language" content="English">
+ 
+    <!-- Schema.org — Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Relievv Automation",
+      "url": "https://relievv.in",
+      "logo": "https://relievv.in/assets/images/logo.png",
+      "description": "Relievv offers free online automation tools for finance, audit, and accounts professionals in India. Built by a Chartered Accountant to eliminate tedious manual tasks.",
+      "foundingCountry": "IN",
+      "email": "relievvautomation@gmail.com",
+      "sameAs": [],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "relievvautomation@gmail.com",
+        "contactType": "customer support",
+        "availableLanguage": "English"
+      }
+    }
+    </script>
+ 
+    <!-- Schema.org — WebSite (enables Google Sitelinks Search Box) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Relievv",
+      "url": "https://relievv.in",
+      "description": "Free online automation tools for finance, audit, and accounts professionals. Made in India.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://relievv.in/#tools"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+ 
+    <!-- Schema.org — ItemList (all tools listed for Google rich results) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Relievv Free Finance Tools",
+      "description": "Free online tools for finance, audit, and accounts professionals",
+      "url": "https://relievv.in/#tools",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Excel Sheet Consolidator",
+          "description": "Merge multiple Excel worksheets into a single structured master sheet for unified financial data analysis.",
+          "url": "https://excel-sheet.relievv.in"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Excel Workbook Integrator",
+          "description": "Unify multiple Excel workbooks into a single consolidated file for streamlined reporting and reconciliation workflows.",
+          "url": "https://excel-workbook.relievv.in"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "26AS Converter",
+          "description": "Convert Form 26AS PDF into Excel format for easy TDS reconciliation and tax analysis.",
+          "url": "https://26as.relievv.in"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Bank Statement Parser",
+          "description": "Convert system-generated PDF bank statements into structured Excel format for financial analysis and reconciliation.",
+          "url": "https://bank.relievv.in"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "GSTR Consolidator",
+          "description": "Merge multiple months GSTR-1, GSTR-3B, and GSTR-2A JSON files into a single structured master report.",
+          "url": "https://gstr.relievv.in"
+        }
+      ]
+    }
+    </script>
+ 
+    <!-- Schema.org — FAQPage (about Relievv) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Relievv?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Relievv is a free suite of online automation tools for finance, audit, and accounts professionals. It is built by a Chartered Accountant to eliminate tedious manual tasks in financial workflows. No signup is required."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are Relievv tools free to use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, all Relievv tools are completely free to use. No signup, no payment, no subscription required."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What tools does Relievv offer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Relievv offers Excel Sheet Consolidator, Excel Workbook Integrator, 26AS Converter, Bank Statement Parser, and GSTR Consolidator. More tools are coming soon."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my data safe on Relievv?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Relievv processes data with industry-standard encryption and secure processing protocols. Many tools process data entirely in your browser with no server upload."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who built Relievv?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Relievv is built by Rahul, a Chartered Accountant from India, with a vision to automate repetitive manual tasks in finance and audit workflows."
+          }
+        }
+      ]
+    }
+    </script>
+ 
+    <!-- Schema.org — BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://relievv.in"
+        }
+      ]
+    }
+    </script>
+ 
+    <!-- =============================================
+         END SEO META TAGS
+         ============================================= -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
