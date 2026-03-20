@@ -3,7 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog</title>
+  <!-- =============================================
+         SEO META TAGS — RELIEVV BLOG PAGE
+         ============================================= -->
+ 
+    <!-- Primary SEO -->
+    <title>Blog – Relievv | Finance, Audit & Accounts Automation Insights | Made in India</title>
+    <meta name="description" content="Read the Relievv blog for insights on finance automation, audit tools, Excel tips, TDS reconciliation, GSTR filing, and how CA professionals can work smarter. Written by a Chartered Accountant.">
+    <meta name="keywords" content="Relievv blog, finance automation blog, CA tools blog India, Excel tips for accountants, TDS reconciliation guide, GSTR filing tips, audit automation India, accounting tools blog, finance professional tips India, free CA tools blog">
+    <meta name="author" content="Relievv Automation">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://relievv.in/blog">
+ 
+    <!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Blog – Relievv | Finance, Audit & Accounts Automation Insights">
+    <meta property="og:description" content="Insights on finance automation, Excel tips, TDS reconciliation, GSTR filing, and audit tools for CA professionals in India. Written by a Chartered Accountant.">
+    <meta property="og:url" content="https://relievv.in/blog">
+    <meta property="og:site_name" content="Relievv Automation">
+    <!-- <meta property="og:image" content="https://relievv.in/assets/images/og-relievv.png"> -->
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_IN">
+ 
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Blog – Relievv | Finance & Audit Automation Insights">
+    <meta name="twitter:description" content="Finance automation tips, Excel guides, TDS & GSTR insights for CA and audit professionals in India. Read the Relievv blog.">
+    <!-- <meta name="twitter:image" content="https://relievv.in/assets/images/og-relievv.png"> -->
+    <meta name="twitter:site" content="@relievv">
+ 
+    <!-- Geo & Language -->
+    <meta name="geo.region" content="IN">
+    <meta name="geo.country" content="India">
+    <meta name="language" content="English">
+ 
+    <!-- Schema.org — Blog -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Relievv Blog",
+      "url": "https://relievv.in/blog",
+      "description": "Insights on finance automation, Excel tips, TDS reconciliation, GSTR filing, and audit tools for CA and finance professionals in India.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Relievv Automation",
+        "url": "https://relievv.in",
+        "logo": "https://relievv.in/assets/images/logo.png"
+      },
+      "blogPost": [
+        {
+          "@type": "BlogPosting",
+          "headline": "The Future of Finance Work",
+          "description": "Tools like Excel and traditional accounting software have helped streamline financial workflows, they still require extensive manual effort for tasks like data formatting, data extraction, reconciliation, and reporting.",
+          "url": "https://relievv.in/blog-details",
+          "image": "https://relievv.in/assets/images/blog-details.jpeg",
+          "author": {
+            "@type": "Person",
+            "name": "Rahul",
+            "jobTitle": "Chartered Accountant"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "Relievv Automation",
+            "url": "https://relievv.in"
+          }
+        }
+      ]
+    }
+    </script>
+ 
+    <!-- Schema.org — BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://relievv.in"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://relievv.in/blog"
+        }
+      ]
+    }
+    </script>
+ 
+    <!-- =============================================
+         END SEO META TAGS
+         ============================================= -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/sweetalert2.css">
