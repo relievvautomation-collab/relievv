@@ -38,7 +38,7 @@ function counteranimation(){
         animateCounter('counter1', 5, '+');
         animateCounter('counter2', 1500, '+');
         animateCounter('counter3', 95, '', true);
-        animateCounter('counter4', 24, '', false, true);
+        // animateCounter('counter4', 24, '', false, true);
     }); 
 }
  
