@@ -189,7 +189,7 @@
         <div class="container">
            <div class="text-center w-100 d-flex flex-column align-items-center justify-content-center mb-5">
              <h2 class="section-title">Get in Touch</h2>
-            <p class="section-subtitle col-md-7 text-center mb-4">Built with professionals in mind, our platform delivers the performance and reliability you need</p>
+            <p class="section-subtitle col-md-7 text-center mb-4">Need help with our tools or have feedback? Drop us a message below.</p>
            </div>
             
             <div class="row position-relative align-items-center">
