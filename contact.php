@@ -187,7 +187,7 @@
     <!-- Contact Section Start  -->
     <section class="why-choose">
         <div class="container">
-           <div class="text-center w-100 d-flex flex-column align-items-center justify-content-center mb-5">
+           <div class="text-center w-100 d-flex flex-column align-items-center justify-content-center mb-3">
              <h2 class="section-title">Get in Touch</h2>
             <p class="section-subtitle col-md-7 text-center mb-4">Need help with our tools or have feedback? Drop us a message below.</p>
            </div>
