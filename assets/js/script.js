@@ -13,7 +13,7 @@ function counteranimation(){
 
 
     // Counter Animation Function
-    function animateCounter(elementId, targetValue, suffix = '+', isPercentage = false, is247 = false) {
+    function animateCounter(elementId, targetValue, suffix = '+', isPercentage = false ) { // is247 = false
         const element = document.getElementById(elementId);
         let current = 0;
         const increment = targetValue / 50;  
