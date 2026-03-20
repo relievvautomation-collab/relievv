@@ -24,13 +24,13 @@ function counteranimation(){
                 clearInterval(timer);
             }
             
-            if (is247) {
-                element.textContent = Math.floor(current) + '/7';
-            } else if (isPercentage) {
-                element.textContent = Math.floor(current) + '%';
-            } else {
-                element.textContent = Math.floor(current) + suffix;
-            }
+            // if (is247) {
+            //     element.textContent = Math.floor(current) + '/7';
+            // } else if (isPercentage) {
+            //     element.textContent = Math.floor(current) + '%';
+            // } else {
+            //     element.textContent = Math.floor(current) + suffix;
+            // }
         }, 30);  
     }
  
