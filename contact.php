@@ -3,7 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Relievv</title>
+   <!-- =============================================
+         SEO META TAGS — RELIEVV CONTACT PAGE
+     ============================================= -->
+ 
+    <!-- Primary SEO -->
+    <title>Contact Us – Relievv | Free Finance & Audit Tools Support | Made in India</title>
+    <meta name="description" content="Get in touch with the Relievv team. Have questions about our free finance, audit, or accounts automation tools? Contact us anytime at relievvautomation@gmail.com. We're here to help professionals work smarter.">
+    <meta name="keywords" content="contact Relievv, Relievv support, finance tools help, CA tools support India, contact Relievv automation, relievvautomation@gmail.com, free finance tools contact, audit tools India support">
+    <meta name="author" content="Relievv Automation">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://relievv.in/contact">
+ 
+    <!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Contact Us – Relievv | Free Finance & Audit Tools Support">
+    <meta property="og:description" content="Reach out to the Relievv team for support, feedback, or queries about our free finance and audit automation tools. We respond promptly.">
+    <meta property="og:url" content="https://relievv.in/contact">
+    <meta property="og:site_name" content="Relievv Automation">
+    <!-- <meta property="og:image" content="https://relievv.in/assets/images/og-relievv.png"> -->
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_IN">
+ 
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contact Us – Relievv | Finance & Audit Tools Support">
+    <meta name="twitter:description" content="Have questions about Relievv's free finance and audit tools? Get in touch — we'd love to hear from you.">
+    <!-- <meta name="twitter:image" content="https://relievv.in/assets/images/og-relievv.png"> -->
+    <meta name="twitter:site" content="@relievv">
+ 
+    <!-- Geo & Language -->
+    <meta name="geo.region" content="IN">
+    <meta name="geo.country" content="India">
+    <meta name="language" content="English">
+ 
+    <!-- Schema.org — ContactPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "name": "Contact Relievv",
+      "url": "https://relievv.in/contact",
+      "description": "Contact the Relievv team for support, feedback, or queries about free finance and audit automation tools.",
+      "mainEntity": {
+        "@type": "Organization",
+        "name": "Relievv Automation",
+        "url": "https://relievv.in",
+        "email": "relievvautomation@gmail.com",
+        "logo": "https://relievv.in/assets/images/logo.png",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "relievvautomation@gmail.com",
+          "contactType": "customer support",
+          "availableLanguage": "English",
+          "areaServed": "IN"
+        }
+      }
+    }
+    </script>
+ 
+    <!-- Schema.org — BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://relievv.in"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Contact",
+          "item": "https://relievv.in/contact"
+        }
+      ]
+    }
+    </script>
+ 
+    <!-- =============================================
+         END SEO META TAGS
+         ============================================= -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/sweetalert2.css">
