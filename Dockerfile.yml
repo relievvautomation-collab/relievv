@@ -1,30 +1,7 @@
+
+
 # version: '3.8'
-
-
-
-
-
 # services:
-#   mysql:
-#     image: mysql:8.0
-#     container_name: relievv-mysql
-#     environment:
-#       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-1yzJzATQc5reeqzftrsRjsz3Un3EHfJXolVh6gCrFl9UpsY8J3hCszWBPjNTxatv}
-#       MYSQL_DATABASE: ${DB_NAME:-relievv_db}
-#       MYSQL_USER: ${DB_USER:-relievv_user}
-#       MYSQL_PASSWORD: ${DB_PASS:-vishal@31#}
-#     volumes:
-#       - mysql_data:/var/lib/mysql
-#     networks:
-#       - relievv-network
-#     healthcheck:
-#       test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD:-1yzJzATQc5reeqzftrsRjsz3Un3EHfJXolVh6gCrFl9UpsY8J3hCszWBPjNTxatv}"]
-#       interval: 10s
-#       timeout: 5s
-#       retries: 10
-#       start_period: 30s
-#     restart: unless-stopped
-
 #   web:
 #     build: 
 #       context: .
@@ -33,37 +10,25 @@
 #     ports:
 #       - "80:80"
 #     environment:
-#       - DB_HOST=mysql
-#       - DB_NAME=${DB_NAME:-relievv_db}
-#       - DB_USER=${DB_USER:-relievv_user}
-#       - DB_PASS=${DB_PASS:-vishal@31#}
+#       - DB_HOST=z40w808w80s8cckow00wo4cc
+#       - DB_NAME=default
+#       - DB_USER=mysql
+#       - DB_PASS=T4fz93Lxd1sw5VMmb9VfMhwdManhqdpO1GgVniDrHJJOCJ2m1PdZosMLr6LudQzg
 #       - DB_PORT=3306
-#       - APP_ENV=${APP_ENV:-production}
-#     depends_on:
-#       mysql:
-#         condition: service_healthy
+#       - APP_ENV=production
 #     volumes:
 #       - uploads:/var/www/html/uploads
-#     networks:
-#       - relievv-network
 #     restart: unless-stopped
 
 # volumes:
-#   mysql_data:
-#     driver: local
 #   uploads:
 #     driver: local
-
-# networks:
-#   relievv-network:
-#     driver: bridge
-
 
 
 version: '3.8'
 services:
   web:
-    build: 
+    build:
       context: .
       dockerfile: Dockerfile
     container_name: relievv-web
@@ -77,9 +42,5 @@ services:
       - DB_PORT=3306
       - APP_ENV=production
     volumes:
-      - uploads:/var/www/html/uploads
+      - /data/relievv/uploads:/var/www/html/uploads
     restart: unless-stopped
-
-volumes:
-  uploads:
-    driver: local
