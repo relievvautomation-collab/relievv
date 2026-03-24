@@ -47,7 +47,7 @@ RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
 # ✅ Hardcoded DB environment variables
 ENV DB_HOST=z40w808w80s8cckow00wo4cc
-ENV DB_NAME=relievv
+ENV DB_NAME=default
 ENV DB_USER=mysql
 ENV DB_PASS=T4fz93Lxd1sw5VMmb9VfMhwdManhqdpO1GgVniDrHJJOCJ2m1PdZosMLr6LudQzg
 ENV DB_PORT=3306
