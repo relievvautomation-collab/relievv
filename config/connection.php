@@ -19,9 +19,7 @@ $dbname = getenv('DB_NAME');
 $user = getenv('DB_USER');
 $pass = getenv('DB_PASS');
 $port = getenv('DB_PORT') ?: 3306;
-
-// PDO
-$pdo = new PDO("mysql:host=$host;port=$port;dbname=$dbname", $user, $pass);
+ 
 
 // OR mysqli
 $conn = mysqli_connect($host, $user, $pass, $dbname, $port);
