@@ -20,7 +20,7 @@ $port = (int)(getenv('DB_PORT') ?: 3306);
 
 $con = mysqli_connect($host, $user, $pass, $dbname, $port);
 
-if (!$conn) {
+if (!$con) {
     die("Database connection failed. Error: " . mysqli_connect_error() . 
         " | Host: $host | User: $user | DB: $dbname | Port: $port");
 }
