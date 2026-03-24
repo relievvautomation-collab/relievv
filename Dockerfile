@@ -53,11 +53,6 @@ ENV DB_PASS=T4fz93Lxd1sw5VMmb9VfMhwdManhqdpO1GgVniDrHJJOCJ2m1PdZosMLr6LudQzg
 ENV DB_PORT=3306
 ENV APP_ENV=production
 
-# Copy and set permissions for startup script
-COPY init-db.sh /init-db.sh
-RUN chmod +x /init-db.sh
 
-# Run DB import then start Apache
-CMD ["/bin/bash", "-c", "/init-db.sh && apache2-foreground"]
 
 EXPOSE 80
