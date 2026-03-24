@@ -1,4 +1,4 @@
-// <?php
+ <?php
 // // Local XAMPP defaults; Coolify/Docker: set DB_HOST, DB_USER, DB_PASSWORD, DB_NAME in environment
 // $dbhost = getenv('DB_HOST') ?: 'localhost';
 // $dbuser = getenv('DB_USER') ?: 'root';
@@ -27,8 +27,13 @@ $dbname = getenv('DB_NAME') ?: (getenv('MYSQL_DATABASE') ?: 'relievv');
 $dbport = (int) (getenv('DB_PORT') ?: (getenv('MYSQL_PORT') ?: 3306));
 
 // Prevent uncaught mysqli exceptions so we can show a clear deploy-time error.
- 
-$con = mysqli_connect($dbhost, $dbuser, $dbpassword, $dbname, $dbport);
+if (!function_exists('mysqli_connect')) {
+    http_response_code(500);
+    echo "Database driver missing: mysqli extension is not enabled in this container.";
+    exit;
+}
+mysqli_report(MYSQLI_REPORT_OFF);
+$con = @mysqli_connect($dbhost, $dbuser, $dbpassword, $dbname, $dbport);
 if (!$con) {
     http_response_code(500);
     echo "Database connection failed. Check DB_HOST/DB_PORT in Coolify. ";
