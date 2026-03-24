@@ -110,7 +110,38 @@
     <link rel="manifest" href="favicon/site.webmanifest" />
 </head>
 <body>
-<?php include 'header.php'; ?>
+<?php 
+include 'header.php';
+include 'config/connection.php';
+// Default placeholders (used when DB values/images are missing)
+$defaultCardImageSrc = "./assets/images/blog-details.jpeg";
+$defaultCardTitle = "The Future of Finance Work";
+$defaultCardDesc = "Tools like Excel and traditional accounting software have helped streamline financial workflows, they still require extensive manual effort for tasks like data formatting, data extraction, reconciliation, and reporting.";
+
+$truncateWords = function ($text, $limitWords) {
+    // Limit by characters (letters), not words.
+    $clean = trim(preg_replace('/\s+/u', ' ', strip_tags((string) $text)));
+    if ($clean === '') {
+        return '';
+    }
+
+    $limit = (int) $limitWords;
+    if ($limit <= 0) {
+        return '';
+    }
+
+    $length = function_exists('mb_strlen') ? mb_strlen($clean, 'UTF-8') : strlen($clean);
+    if ($length <= $limit) {
+        return $clean;
+    }
+
+    $substr = function_exists('mb_substr') ? mb_substr($clean, 0, $limit, 'UTF-8') : substr($clean, 0, $limit);
+    return trim($substr) . '...';
+};
+
+$blogQuery = mysqli_query($con, "SELECT id, encrytiduniq, thumbimages, title, shortdescription FROM tblblog ORDER BY id DESC");
+
+?>
 
 
     <!-- Blog Section Start -->
@@ -123,27 +154,59 @@
 
 
            <div class="row g-3 position-relative">
-                <div class="col-lg-4 col-12  shadow-lg px-0">
-                    <div class="d-flex flex-column align-items-start position-relative">
-                        <div class="blog-img-box">
-                            <img src="./assets/images/blog-details.jpeg" alt="blog" class="w-100 h-100 object-fit-cover rounded-2">
-                        </div>
-                        <div class="p-3 w-100 d-flex flex-column align-items-start justify-content-center">
-                         <h5 class="mb-3 head-title-blog">The Future of Finance Work</h5>
-                        <p class="mb-0 font-size-paragraph">Tools like Excel and traditional accounting software have helped streamline financial workflows, they still require extensive manual effort for tasks like data formatting, data extraction, reconciliation, and reporting.</p>
-                        <a href="blog-details" class="btn-use-tool w-100 mt-4 text-decoration-none text-center">Read More</a>
-                        </div>
-                        
-                    </div>  
-                </div>
-                
-           </div>
-           
-            
-        </div>
-        </section>
+                <?php
+                $foundAny = false;
+                if ($blogQuery && mysqli_num_rows($blogQuery) > 0) {
+                    while ($row = mysqli_fetch_assoc($blogQuery)) {
+                        $foundAny = true;
+                        $cardTitle = !empty($row['title']) ? $row['title'] : $defaultCardTitle;
+                        $cardDesc = !empty($row['shortdescription']) ? $row['shortdescription'] : $defaultCardDesc;
+                        $cardImageSrc = $defaultCardImageSrc;
 
-    <!-- Blog Section End -->
+                        if (!empty($row['thumbimages']) && file_exists(__DIR__ . '/uploads/' . $row['thumbimages'])) {
+                            $cardImageSrc = 'uploads/' . $row['thumbimages'];
+                        }
+                        ?>
+                        <div class="col-lg-4 col-12  px-2 rounded-0">
+                            <div class="d-flex flex-column  shadow-lg rounded-0 align-items-start position-relative">
+                                <div class="blog-img-box">
+                                    <img src="<?php echo htmlspecialchars($cardImageSrc); ?>" alt="blog" class="w-100 h-100 object-fit-cover rounded-2">
+                                </div>
+                                <div class="p-3 w-100 d-flex flex-column align-items-start justify-content-between" style="height: 200px;">
+                                <div class="d-flex flex-column align-items-start justify-content-center">
+                                <h5 class="mb-1 head-title-blog"><?php echo htmlspecialchars($cardTitle); ?></h5>
+                                <p class="mb-0 font-size-paragraph text-justify"><?php echo htmlspecialchars($truncateWords($cardDesc, 130)); ?></p>
+                                </div>
+                                    <a href="blog-details?id=<?php echo htmlspecialchars(!empty($row['encrytiduniq']) ? $row['encrytiduniq'] : (string) ((int) $row['id'])); ?>" class="btn-use-tool w-100 mt-auto text-decoration-none text-center">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+                    }
+                }
+
+                // If DB has no blog rows, keep the UI card visible with defaults.
+                if (!$foundAny) {
+                    ?>
+                    <div class="col-lg-4 col-12  shadow-lg px-0">
+                        <div class="d-flex flex-column align-items-start position-relative">
+                            <div class="blog-img-box">
+                                <img src="<?php echo htmlspecialchars($defaultCardImageSrc); ?>" alt="blog" class="w-100 h-100 object-fit-cover rounded-2">
+                            </div>
+                            <div class="p-3 w-100 d-flex flex-column align-items-start justify-content-center" style="height: 200px;">
+                            <h5 class="mb-3 head-title-blog"><?php echo htmlspecialchars($defaultCardTitle); ?></h5>
+                            <p class="mb-0 font-size-paragraph"><?php echo htmlspecialchars($truncateWords($defaultCardDesc, 100)); ?></p>
+                            <a href="blog-details" class="btn-use-tool w-100 mt-auto text-decoration-none text-center">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            <?php
+        }
+        ?>
+    </div>
+</section>
+
+<!-- Blog Section End -->
 
 <?php include 'footer.php'; ?>
      <script src="assets/js/jquery.min.js"></script>
