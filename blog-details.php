@@ -15,7 +15,47 @@
     <link rel="manifest" href="favicon/site.webmanifest" />
 </head>
 <body>
-   <?php include 'header.php'; ?>
+   <?php
+   include 'header.php';
+   include 'config/connection.php';
+
+   $blogKey = isset($_GET['id']) ? trim((string) $_GET['id']) : '';
+   if ($blogKey === '' && isset($_GET['edit'])) {
+       $blogKey = trim((string) $_GET['edit']);
+   }
+
+   $blogTitle = 'The Future of Finance Work: Why Automation is No Longer Optional';
+   $blogBannerSrc = './assets/images/banner-inner.jpeg';
+   $blogContentHtml = '';
+   $blogCreatedAt = '';
+
+   if ($blogKey !== '') {
+       $safeKey = mysqli_real_escape_string($con, $blogKey);
+       $blogSql = "
+           SELECT title, subtitle, thumbimages, innerimages, fulldescription, created_at
+           FROM tblblog
+           WHERE encrytiduniq = '$safeKey' OR id = '$safeKey'
+           LIMIT 1
+       ";
+       $blogRes = mysqli_query($con, $blogSql);
+       if ($blogRes && mysqli_num_rows($blogRes) === 1) {
+           $blogRow = mysqli_fetch_assoc($blogRes);
+           $blogTitle = !empty($blogRow['subtitle']) ? $blogRow['subtitle'] : $blogTitle;
+           $blogContentHtml = !empty($blogRow['fulldescription']) ? $blogRow['fulldescription'] : '';
+           $blogCreatedAt = !empty($blogRow['created_at']) ? $blogRow['created_at'] : '';
+
+           $innerFile = !empty($blogRow['innerimages']) ? (__DIR__ . '/uploads/' . $blogRow['innerimages']) : '';
+           $thumbFile = !empty($blogRow['thumbimages']) ? (__DIR__ . '/uploads/' . $blogRow['thumbimages']) : '';
+           if ($innerFile && file_exists($innerFile)) {
+               $blogBannerSrc = './uploads/' . $blogRow['innerimages'];
+           } elseif ($thumbFile && file_exists($thumbFile)) {
+               $blogBannerSrc = './uploads/' . $blogRow['thumbimages'];
+           }
+       }
+   }
+
+   $hasDbContent = trim((string) $blogContentHtml) !== '';
+   ?>
 
 
     <!-- Blog Section Start -->
@@ -34,7 +74,7 @@
                 <div class="col-lg-9 col-12">
                      
                         <div class="w-100 d-flex flex-column align-items-start justify-content-center">
-                        <h5 class="mb-3 fs-2 head-title-blog">The Future of Finance Work: Why Automation is No Longer Optional</h5>
+                        <h5 class="mb-3 fs-2 head-title-blog"><?php echo htmlspecialchars($blogTitle); ?></h5>
                          
                         </div>
                         
@@ -42,7 +82,7 @@
                     <div class="d-lg-flex flex-lg-row flex-column align-items-center gap-2 position-relative time-box-spanvl">
 
                          <span>Rahul</span> <p class="one"></p>
-                            <span>February 15, 2026</span><p class="two"></p>
+                            <span><?php echo $blogCreatedAt ? htmlspecialchars(date('F d, Y', strtotime($blogCreatedAt))) : 'February 15, 2026'; ?></span><p class="two"></p>
                         <span class="third-party-time">2 min read</span> 
                     </div>
                 </div>
@@ -51,19 +91,21 @@
                 <div class="mt-3 row">
 
                     <div class="inner-big-img border-0">
-                        <img src="./assets/images/banner-inner.jpeg" alt="inner-thumbnail-img" class="w-100 h-100 object-fit-cover rounded-2 mb-3">
+                        <img src="<?php echo htmlspecialchars($blogBannerSrc); ?>" alt="inner-thumbnail-img" class="w-100 h-100 object-fit-cover rounded-2 mb-3">
                     </div>
 
                     <div class="col-12 d-flex align-items-start flex-column mt-5">
-                
+                    <?php if ($hasDbContent) { echo $blogContentHtml; } else { ?>
                     <p>For decades, finance and accounting professionals have relied heavily on manual processes. From consolidating Excel sheets to extracting data from PDFs, a significant portion of a professional’s time is spent performing repetitive tasks rather than focusing on analysis and decision-making.
                     </p>
                     <p class="mb-0">While tools like Excel and traditional accounting software have helped streamline financial workflows, they still require extensive manual effort for tasks like data formatting, data extraction, reconciliation, and reporting.</p>
                     <p class="mb-0">As businesses grow and data volumes increase, manual processes become inefficient, error-prone, and time-consuming.</p>
                     <p class="mb-0">The future of finance operations lies in smart automation tools that eliminate repetitive work and allow professionals to focus on what actually matters — insights, strategy, and decision-making.</p>
+                    <?php } ?>
                 </div>
 
 
+                 <?php if (!$hasDbContent) { ?>
                  <div class="col-12 d-flex align-items-start flex-column mt-3">
                     <h4 class="text-dark mb-3">  1. The Hidden Problem in Finance Workflows:</h4>
                     <p><strong class="text-dark">•</strong> Consolidating multiple Excel sheets into a single workbook.</p>
@@ -73,7 +115,9 @@
                     <p  ><strong class="text-dark">•</strong> Formatting financial reports manually.</p>
                     <p  ><strong class="text-dark">•</strong> Copy-pasting data across multiple files.</p>
                 </div>
+                <?php } ?>
 
+                 <?php if (!$hasDbContent) { ?>
                  <div class="col-12 d-flex align-items-start flex-column mt-3">
                     <h4 class="text-dark mb-3">  2. Why Automation is the Logical Next Step:</h4>
                     <div>
@@ -87,6 +131,8 @@
                     <p  ><strong class="text-dark">•</strong> Risk identification.</p>
                     <p  ><strong class="text-dark">•</strong> Performance monitoring.</p>
                 </div>
+                 <?php } ?>
+                 <?php if (!$hasDbContent) { ?>
                  <div class="col-12 d-flex align-items-start flex-column mt-3">
                     <h4 class="text-dark mb-3">  3. Tools Currently Available on Relievv:</h4>
                     <div>
@@ -162,6 +208,7 @@
                 </div>
                 </div>
                 </div>
+                <?php } ?>
 
            </div>
            
