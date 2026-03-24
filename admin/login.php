@@ -1,6 +1,6 @@
 <?php 
-require("../config/connection.php");
 session_start();
+require("../config/connection.php");
 if(isset($_SESSION['admin_id'])){
     header('Location: login');
     exit;
