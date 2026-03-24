@@ -27,7 +27,7 @@ $dbname = getenv('DB_NAME') ?: (getenv('MYSQL_DATABASE') ?: 'relievv');
 $dbport = (int) (getenv('DB_PORT') ?: (getenv('MYSQL_PORT') ?: 3306));
 
 // Prevent uncaught mysqli exceptions so we can show a clear deploy-time error.
-mysqli_report(MYSQLI_REPORT_OFF);
+ 
 $con = mysqli_connect($dbhost, $dbuser, $dbpassword, $dbname, $dbport);
 if (!$con) {
     http_response_code(500);
