@@ -25,6 +25,31 @@
 #     driver: local
 
 
+# version: '3.8'
+# services:
+#   web:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#     container_name: relievv-web
+#     ports:
+#       - "80:80"
+#     environment:
+#       - DB_HOST=z40w808w80s8cckow00wo4cc
+#       - DB_NAME=default
+#       - DB_USER=mysql
+#       - DB_PASS=T4fz93Lxd1sw5VMmb9VfMhwdManhqdpO1GgVniDrHJJOCJ2m1PdZosMLr6LudQzg
+#       - DB_PORT=3306
+#       - APP_ENV=production
+#     volumes:
+#       - /data/relievv/uploads:/var/www/html/uploads
+#     restart: unless-stopped
+
+#   volumes:
+#    uploads:
+#     driver: local
+
+
 version: '3.8'
 services:
   web:
@@ -44,7 +69,4 @@ services:
     volumes:
       - /data/relievv/uploads:/var/www/html/uploads
     restart: unless-stopped
-
-  volumes:
-   uploads:
-    driver: local
+ 
