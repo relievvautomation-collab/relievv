@@ -32,7 +32,7 @@ if(isset($_SESSION['admin_id'])){
     font-weight: 400;
     line-height: 1.5;
     color: var(--bs-body-color);
-    background-color: rgba(255, 255, 255, 0.15);
+    background-color: #004698;
     background-clip: padding-box;
     border: 0;
     -webkit-appearance: none;
@@ -43,8 +43,7 @@ if(isset($_SESSION['admin_id'])){
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
         }
         .form-control:focus {
-            box-shadow: none;
-            background-color: rgba(255, 255, 255, 0.15);
+            box-shadow: none;  background-color: #004698;
         }
         label{font-size: 1rem; font-weight: 500; color: #1a1a1a; margin: 0.5rem 0;  }
     </style>
