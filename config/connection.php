@@ -12,19 +12,17 @@
 
 
 <?php 
-
-
 $host = getenv('DB_HOST');
 $dbname = getenv('DB_NAME');
 $user = getenv('DB_USER');
 $pass = getenv('DB_PASS');
-$port = getenv('DB_PORT') ?: 3306;
- 
+$port = (int)(getenv('DB_PORT') ?: 3306);
 
-// OR mysqli
 $conn = mysqli_connect($host, $user, $pass, $dbname, $port);
 
-
+if (!$conn) {
+    die("Database connection failed. Error: " . mysqli_connect_error() . 
+        " | Host: $host | User: $user | DB: $dbname | Port: $port");
+}
 ?>
-
 
