@@ -1,4 +1,9 @@
+
 FROM php:8.2-apache
+
+# Install and enable MySQL extensions used by the app
+RUN docker-php-ext-install mysqli pdo pdo_mysql \
+    && docker-php-ext-enable mysqli pdo pdo_mysql
 
 # Enable Apache modules
 RUN a2enmod rewrite
@@ -17,3 +22,4 @@ RUN sed -i '/<Directory \/var\/www\/>/,/<\/Directory>/ s/AllowOverride None/Allo
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
 EXPOSE 80
+
