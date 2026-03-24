@@ -9,7 +9,7 @@ services:
       - DB_HOST=mysql
       - DB_NAME=${DB_NAME:-relievv_db}
       - DB_USER=${DB_USER:-relievv_user}
-      - DB_PASS=${DB_PASS:-relievv_password}
+      - DB_PASS=${DB_PASS:-vishal@31#}
       - DB_PORT=3306
       - APP_ENV=${APP_ENV:-production}
     depends_on:
