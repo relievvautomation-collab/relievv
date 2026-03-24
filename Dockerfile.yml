@@ -1,11 +1,15 @@
 version: '3.8'
 
+
+
+
+
 services:
   mysql:
     image: mysql:8.0
     container_name: relievv-mysql
     environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-rootPassword123!}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-1yzJzATQc5reeqzftrsRjsz3Un3EHfJXolVh6gCrFl9UpsY8J3hCszWBPjNTxatv}
       MYSQL_DATABASE: ${DB_NAME:-relievv_db}
       MYSQL_USER: ${DB_USER:-relievv_user}
       MYSQL_PASSWORD: ${DB_PASS:-vishal@31#}
@@ -14,7 +18,7 @@ services:
     networks:
       - relievv-network
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD:-rootPassword123!}"]
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p${MYSQL_ROOT_PASSWORD:-1yzJzATQc5reeqzftrsRjsz3Un3EHfJXolVh6gCrFl9UpsY8J3hCszWBPjNTxatv}"]
       interval: 10s
       timeout: 5s
       retries: 10
