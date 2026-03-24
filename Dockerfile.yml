@@ -71,7 +71,7 @@ services:
       - "80:80"
     environment:
       - DB_HOST=z40w808w80s8cckow00wo4cc
-      - DB_NAME=relievv
+      - DB_NAME=default
       - DB_USER=mysql
       - DB_PASS=T4fz93Lxd1sw5VMmb9VfMhwdManhqdpO1GgVniDrHJJOCJ2m1PdZosMLr6LudQzg
       - DB_PORT=3306
