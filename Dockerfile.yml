@@ -44,3 +44,7 @@ services:
     volumes:
       - /data/relievv/uploads:/var/www/html/uploads
     restart: unless-stopped
+
+  volumes:
+   uploads:
+    driver: local
