@@ -42,7 +42,12 @@ table {
     border-color: var(--bs-table-border-color);
 }
 .table { border: 1px solid #ddd; }
-.table  > table > thead { padding: 5px; } 
+tbody, td, tfoot, th, thead, tr {
+    border-color: inherit;
+    border-style: solid;
+    border-width: 0;
+    padding: 10px;
+}
 
 
 .fw-500{font-weight: var(--font-500) !important;}
