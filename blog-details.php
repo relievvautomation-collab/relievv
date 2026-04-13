@@ -72,7 +72,7 @@
 
 
            <div class="row g-3 position-relative">
-                <div class="col-lg-9 col-12">
+                <div class="col-12">
                      
                         <div class="w-100 d-flex flex-column align-items-start justify-content-center">
                         <h5 class="mb-3 fs-2 head-title-blog"><?php echo htmlspecialchars($blogTitle); ?></h5>
