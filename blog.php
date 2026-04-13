@@ -170,14 +170,14 @@ $blogQuery = mysqli_query($con, "SELECT id, encrytiduniq, thumbimages, title, sh
                         <div class="col-lg-4 col-12  px-2 rounded-0">
                             <div class="d-flex flex-column  shadow-lg rounded-0 align-items-start position-relative">
                                 <div class="blog-img-box">
-                                    <img src="<?php echo htmlspecialchars($cardImageSrc); ?>" alt="blog" class="w-100 h-100 object-fit-cover rounded-2">
+                                    <img src="<?php echo htmlspecialchars($cardImageSrc); ?>" alt="blog" class="w-100 h-100   rounded-2" style="object-fit: fill;">
                                 </div>
                                 <div class="p-3 w-100 d-flex flex-column align-items-start justify-content-between" style="height: 200px;">
                                 <div class="d-flex flex-column align-items-start justify-content-center">
                                 <h5 class="mb-1 head-title-blog"><?php echo htmlspecialchars($cardTitle); ?></h5>
                                 <p class="mb-0 font-size-paragraph text-justify"><?php echo htmlspecialchars($truncateWords($cardDesc, 130)); ?></p>
                                 </div>
-                                    <a href="blog-details?id=<?php echo htmlspecialchars(!empty($row['encrytiduniq']) ? $row['encrytiduniq'] : (string) ((int) $row['id'])); ?>" class="btn-use-tool w-100 mt-auto text-decoration-none text-center">Read More</a>
+                                    <a href="blog-details?id=<?php echo htmlspecialchars(!empty($row['encrytiduniq']) ? $row['encrytiduniq'] : (string) ((int) $row['id'])); ?>" class="btn-use-tool w-100 mt-4 text-decoration-none text-center">Read More</a>
                                 </div>
                             </div>
                         </div>
