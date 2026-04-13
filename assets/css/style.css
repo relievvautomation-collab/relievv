@@ -19,6 +19,10 @@
     font-style: normal;
 }
 li{list-style: none;}
+
+ 
+
+
 .fw-500{font-weight: var(--font-500) !important;}
 
 .counter-total{background: linear-gradient(360deg, #1a87c3 0%, #004698 100%); color: transparent; font-weight: 600; padding: 0.5rem 1.25rem; border-radius: 6px; font-size: 3.5rem; background-clip: text; -webkit-background-clip: text;}
