@@ -172,7 +172,7 @@ $blogQuery = mysqli_query($con, "SELECT id, encrytiduniq, thumbimages, title, sh
                                 <div class="blog-img-box">
                                     <img src="<?php echo htmlspecialchars($cardImageSrc); ?>" alt="blog" class="w-100 h-100   rounded-2" style="object-fit: fill;">
                                 </div>
-                                <div class="p-3 w-100 d-flex flex-column align-items-start justify-content-between" style="height: 200px;">
+                                <div class="p-3 w-100 d-flex flex-column align-items-start justify-content-between">
                                 <div class="d-flex flex-column align-items-start justify-content-center">
                                 <h5 class="mb-1 head-title-blog"><?php echo htmlspecialchars($cardTitle); ?></h5>
                                 <p class="mb-0 font-size-paragraph text-justify"><?php echo htmlspecialchars($truncateWords($cardDesc, 130)); ?></p>
