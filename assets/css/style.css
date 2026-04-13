@@ -360,7 +360,7 @@ li{list-style: none;}
             font-size: 0.95rem;
             margin-bottom: 1rem;
         }
-        .blog-img-box{height: 205px; border-bottom: 0px solid #cacaca; width: 100%; padding-bottom: 0px;}
+        .blog-img-box{height: 290px; border-bottom: 0px solid #cacaca; width: 100%; padding-bottom: 0px;}
         .bg-gray-vl {background-color: var(--light-bg);}
 
         .highlight-text {
