@@ -37,10 +37,13 @@ table {
     --bs-table-hover-color: var(--bs-body-color);
     --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
     width: 100%;
-    margin-bottom: 1rem;
+    margin-bottom: 0rem;
     vertical-align: top;
     border-color: var(--bs-table-border-color);
 }
+.table { border: 1px solid #ddd; }
+.table  > table > thead { padding: 5px; } 
+
 
 .fw-500{font-weight: var(--font-500) !important;}
 
