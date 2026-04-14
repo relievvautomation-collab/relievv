@@ -33,7 +33,7 @@
                                  <a class="navbar-brand linkfooter-gradvl mb-2" href="javascript:void(0)">
                                   Quick Links
                              </a>
-                              <ul class="position-relative ps-0 w-100 mt-2 d-flex ms-2  flex-column gap-2 align-items-start">
+                              <ul class="position-relative ps-0 w-100 mt-2 d-flex ms-2  flex-column gap-2 align-items-start remove-li">
                                     <!-- <form action="javascript:void(0)" id="sent-email" class="emailclass d-flex gap-2 align-items-center">
                                         <input type="email" placeholder="Enter your Email" class="flex-grow-1 border outline-0 px-3 h-100 rounded-2" id="">
                                         <button class="h-100 border-0 w-auto btn-use-tool rounded-2">Subscribe</button>
