@@ -274,7 +274,7 @@
                            <i class="fa-solid fa-file-pdf"></i>
                         </div>
                         <h5>PDF to Excel</h5>
-                        <p>Convert PDF files into clean, structured, and editable Excel sheets in seconds. Extract tables, statements, invoices, and reports with high accuracy and ready-to-use formatting.</p>
+                        <p>Convert PDF files into clean, structured, and editable Excel sheets in seconds. Extract tables, statements, invoices, and reports with high accuracy.</p>
                        
                               <button class="btn-use-tool"
                             onclick="windowredirecturl('https://pdftoexcel.relievv.in/', '_blank')">
